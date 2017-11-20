@@ -18,6 +18,38 @@ using namespace std;
 // http://pi4j.com/apidocs/com/pi4j/wiringpi/I2C.html
 // based on http://hobbyist86.rssing.com/chan-9523472/latest.php#item13
 
+
+void Test1();
+void GetSensorValues(float& celsius, float& kPa);
+
+int main()
+{
+    int fd;
+    int cnt;
+
+    while(1)
+    {
+        // variables for the final results
+        float kPa, celsius;
+        GetSensorValues(celsius, kPa);
+        // (1 hPa = 100 Pa)
+        float hPa =  kPa * 0.01;
+
+
+        //show the results
+        printf("%5d) %.f kPa (= %.2f hPa), %.2f degrees in Celsius \n" ,cnt++, kPa, hPa, celsius);
+
+        delay(100);
+    }
+
+
+    return 0;
+
+}
+
+
+
+
 void Test1()
 {
     for(int i=0; i<128; i++)
@@ -29,16 +61,8 @@ void Test1()
 
 }
 
-int main()
+void GetSensorValues(float& celsius, float& kPa)
 {
-    int i, n, fd;
-    // command string to get coefficients
-    unsigned char coef_request[3] = {3, 4, 8};
-    // command string to request conversion
-    unsigned char conv_request[3] = {0, 0x12, 0};
-    // variables for the final results
-    float baro, celsius, farenheit;
-
     // variables to hold the integer values of coefficients
     int16_t a0coeff;
     int16_t b1coeff;
@@ -54,12 +78,13 @@ int main()
     float pressureComp;
 
     // open a file descriptor to the device on the I2C bus
-    fd = wiringPiI2CSetup(0x60);  // 0x60 is bus address of mpl115a2
+    int fd = wiringPiI2CSetup(0x60);  // 0x60 is bus address of mpl115a2
     if (fd==-1)
     {
         printf("wiringPiI2CSetup failed\n");
-        return 0;
+        return ;
     }
+
 
     // get the coefficients.  This only needs to be done once.
     // Note on C language: the << and >> operators perform bit shifting
@@ -67,14 +92,14 @@ int main()
     b1coeff = (( (uint16_t) wiringPiI2CReadReg8(fd,6) << 8) | wiringPiI2CReadReg8(fd,7));
     b2coeff = (( (uint16_t) wiringPiI2CReadReg8(fd,8) << 8) | wiringPiI2CReadReg8(fd,9));
     c12coeff = (( (uint16_t) (wiringPiI2CReadReg8(fd,10) << 8) | wiringPiI2CReadReg8(fd,11))) >> 2;
-    printf("%d   %d   %d   %d\n",a0coeff,b1coeff,b2coeff,c12coeff);
+    //printf("%d   %d   %d   %d\n",a0coeff,b1coeff,b2coeff,c12coeff);
     // convert coefficients to floating point
     a0 = (float)a0coeff / 8;
     b1 = (float)b1coeff / 8192;
     b2 = (float)b2coeff / 16384;
     c12 = (float)c12coeff;
     c12 /= 4194304.0;
-    printf("%f   %f   %f   %f\n\n",a0,b1,b2,c12);
+    //printf("%f   %f   %f   %f\n\n",a0,b1,b2,c12);
 
     // start conversion and wait a tiny bit
     wiringPiI2CWriteReg8(fd,0x12,0);
@@ -88,7 +113,7 @@ int main()
     pressureComp = a0 + (b1 + c12 * temp ) * pressure + b2 * temp;
 
     // get the pressure in kiloPascals
-    baro = ((65.0F / 1023.0F) * pressureComp) + 50.0F;        // kPa
+    kPa = ((65.0F / 1023.0F) * pressureComp) + 50.0F;        // kPa
     // get the temperature in celsius degrees
     celsius = ((float) temp - 498.0F) / -5.35F +25.0F;        // C
 
@@ -96,15 +121,10 @@ int main()
     //float baro2 =  baro * 0.295299830714;
 
     // (1 hPa = 100 Pa)
-    float hPa =  baro * 0.01;
+    //float hPa =  baro * 0.01;
 
     // convert Celsius to Farenheit
-    farenheit = (celsius * 1.8) + 32.0;
+    //farenheit = (celsius * 1.8) + 32.0;
 
-    //show the results
-    printf("%.2f kPa (= %.2f hPa)\n" ,baro,hPa);
-    printf("%.2f degrees in Celsius \n", celsius);
-
-    return 0;
 
 }
