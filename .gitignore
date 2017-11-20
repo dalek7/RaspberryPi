@@ -3,6 +3,8 @@ Build/
 bin/
 obj/
 
+out/
+
 # MAC-stuff
 .DS_Store
 

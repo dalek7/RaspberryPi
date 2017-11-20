@@ -33,6 +33,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 			<Add directory="RPi_MPU9250" />
+			<Add directory="Thirdparty" />
 		</Compiler>
 		<Linker>
 			<Add option="-lwiringPi" />

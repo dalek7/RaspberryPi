@@ -10,3 +10,21 @@
 1477094516 /home/pi/repos/raspberry/02-I2CTest-MPU9250/RPi_MPU9250/MPU9250.h
 	<stdint.h>
 
+1511192813 source:/home/pi/repos/raspberry/02-I2CTest-MPU9250/main.cpp
+	<iostream>
+	<errno.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdint.h>
+	<wiringPi.h>
+	<wiringPiI2C.h>
+	"MPU9250.h"
+	<vector>
+	<thread>
+	<atomic>
+	<time.h>
+	<sys/time.h>
+
