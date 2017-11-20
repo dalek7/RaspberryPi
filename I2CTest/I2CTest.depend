@@ -3,8 +3,15 @@
 	<iostream>
 	<wiringPiI2C.h>
 
-1511166802 source:/home/pi/repos/raspberry/I2CTest/main.cpp
+1511169056 source:/home/pi/repos/raspberry/I2CTest/main.cpp
 	<iostream>
 	<errno.h>
+	<unistd.h>
+	<sys/types.h>
+	<sys/stat.h>
+	<fcntl.h>
+	<stdio.h>
+	<stdint.h>
+	<wiringPi.h>
 	<wiringPiI2C.h>
 
