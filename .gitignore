@@ -1,3 +1,12 @@
+build/
+Build/
+bin/
+obj/
+
+# MAC-stuff
+.DS_Store
+
+
 # Prerequisites
 *.d
 

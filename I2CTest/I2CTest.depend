@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1510815903 source:/home/pi/work/I2CTest/main.cpp
+	<iostream>
+	<wiringPiI2C.h>
+
