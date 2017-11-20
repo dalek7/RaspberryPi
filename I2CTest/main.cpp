@@ -18,9 +18,10 @@ using namespace std;
 // http://pi4j.com/apidocs/com/pi4j/wiringpi/I2C.html
 // based on http://hobbyist86.rssing.com/chan-9523472/latest.php#item13
 
+// MPU9250
 
 void Test1();
-void GetSensorValues(float& celsius, float& kPa);
+void GetSensorValues_MPL115A(float& celsius, float& kPa);
 
 int main()
 {
@@ -31,7 +32,7 @@ int main()
     {
         // variables for the final results
         float kPa, celsius;
-        GetSensorValues(celsius, kPa);
+        GetSensorValues_MPL115A(celsius, kPa);
         // (1 hPa = 100 Pa)
         float hPa =  kPa * 0.01;
 
@@ -61,7 +62,7 @@ void Test1()
 
 }
 
-void GetSensorValues(float& celsius, float& kPa)
+void GetSensorValues_MPL115A(float& celsius, float& kPa)
 {
     // variables to hold the integer values of coefficients
     int16_t a0coeff;
