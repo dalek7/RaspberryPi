@@ -96,7 +96,7 @@ void loop()
     while (!keyIsPressed) {
         // Do whatever
         cout << cnt << endl;
-        //GetSensorValues();
+        GetSensorValues();
         delay(20);
         cnt++;
 
@@ -115,6 +115,7 @@ void loop()
             fclose(fp);
             cout << fn1 <<endl;
             mvTraj.clear();
+            break;
 
             cnt = 0;
         }

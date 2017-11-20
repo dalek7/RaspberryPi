@@ -37,6 +37,7 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lwiringPi" />
+			<Add option="-pthread" />
 		</Linker>
 		<Unit filename="RPi_MPU9250/MPU9250.cpp">
 			<Option virtualFolder="MPU9250/" />
