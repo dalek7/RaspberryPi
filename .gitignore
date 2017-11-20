@@ -6,6 +6,8 @@ obj/
 # MAC-stuff
 .DS_Store
 
+# Codeblocks
+*.layout
 
 # Prerequisites
 *.d
