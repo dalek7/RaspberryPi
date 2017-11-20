@@ -93,14 +93,14 @@ int main()
 // The function that has the loop.
 void loop()
 {
-    while (!keyIsPressed) {
+    while (!keyIsPressed) { // TODO : fix this
         // Do whatever
-        cout << cnt << endl;
+        //cout << cnt << endl;
         GetSensorValues();
         delay(20);
         cnt++;
 
-        if(cnt ==200)
+        if(cnt ==500) // some arbitrary number
         {
             std::string fn1= "out/out_"+GetTimeString()+".txt";
             cout <<"Saving " << mvTraj.size() <<" samples .." << endl;
@@ -110,7 +110,7 @@ void loop()
             for(int i=0; i<mvTraj.size(); i++)
             {
                 Inertial v = mvTraj[i];
-                fprintf(fp, "%d\t%f\n", cnt, v.ax);
+                fprintf(fp, "%d\t%f\t%f\t%f\t%f\t%f\t%f\n", i, v.ax, v.ay, v.az , v.gx, v.gy, v.gz);
             }
             fclose(fp);
             cout << fn1 <<endl;
@@ -189,13 +189,13 @@ void printData()
 {
 
   // print the data
-  printf("%6.6f\t", ax);
-  printf("%6.6f\t", ay);
-  printf("%6.6f\t", az);
+  printf("%6.2f\t", ax);
+  printf("%6.2f\t", ay);
+  printf("%6.2f\t", az);
 
-  printf("%6.6f\t", gx);
-  printf("%6.6f\t", gy);
-  printf("%6.6f\t\n", gz);
+  printf("%6.2f\t", gx);
+  printf("%6.2f\t", gy);
+  printf("%6.2f\t\n", gz);
 /*
   printf("%6.6f\t", hx);
   printf("%6.6f\t", hy);
