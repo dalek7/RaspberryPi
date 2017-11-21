@@ -11,6 +11,7 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
+//#include <curses.h>
 
 // https://github.com/simondlevy/RPi_MPU9250/blob/master/examples/Basic_I2C/Basic_I2C.cpp
 
@@ -60,6 +61,18 @@ long cnt=0;
 // A flag to indicate whether a key had been pressed.
 atomic_bool keyIsPressed(false);
 
+// http://cc.byexamples.com/2007/04/08/non-blocking-user-input-in-loop-without-ncurses/
+int kbhit()
+{
+    struct timeval tv;
+    fd_set fds;
+    tv.tv_sec = 0;
+    tv.tv_usec = 0;
+    FD_ZERO(&fds);
+    FD_SET(STDIN_FILENO, &fds); //STDIN_FILENO is 0
+    select(STDIN_FILENO+1, &fds, NULL, NULL, &tv);
+    return FD_ISSET(STDIN_FILENO, &fds);
+}
 
 
 int main()
@@ -72,14 +85,6 @@ int main()
     // Create a thread for the loop.
     thread loopThread = thread(loop);
 
-// Wait for user input (single character). This is OS dependent.
-#ifdef _WIN32 || _WIN64
-    system("pause");
-#else
-    system("read -n1");
-#endif
-    // Set the flag with true to break the loop.
-    keyIsPressed = false;
     // Wait for the thread to finish.
     loopThread.join();
 
@@ -100,7 +105,14 @@ void loop()
         delay(20);
         cnt++;
 
-        if(cnt ==500) // some arbitrary number
+        if (kbhit())
+        {
+        // keyboard pressed
+            keyIsPressed = true;
+            cout << "key++++++++++++++++++++++++++++++++++++" << endl;
+
+        }
+        if(keyIsPressed || cnt ==500) // some arbitrary number
         {
             std::string fn1= "out/out_"+GetTimeString()+".txt";
             cout <<"Saving " << mvTraj.size() <<" samples .." << endl;
