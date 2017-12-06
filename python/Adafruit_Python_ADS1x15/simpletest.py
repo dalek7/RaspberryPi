@@ -3,6 +3,8 @@
 # the screen.
 # Author: Tony DiCola
 # License: Public Domain
+# sudo i2cdetect -y 1
+
 import time
 
 # Import the ADS1x15 module.
