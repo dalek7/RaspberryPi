@@ -112,7 +112,7 @@ void loop()
             cout << "key++++++++++++++++++++++++++++++++++++" << endl;
 
         }
-        if(keyIsPressed || cnt ==500) // some arbitrary number
+        if(keyIsPressed || cnt ==10000) // some arbitrary number
         {
             std::string fn1= "out/out_"+GetTimeString()+".txt";
             cout <<"Saving " << mvTraj.size() <<" samples .." << endl;
