@@ -8,6 +8,10 @@ out/
 # MAC-stuff
 .DS_Store
 
+# Pycharm
+.idea/
+
+
 # Codeblocks
 *.layout
 
