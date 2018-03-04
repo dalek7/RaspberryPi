@@ -2,15 +2,18 @@ from Tkinter import *
 import tkFont
 import serial
 import os
+import platform
 
-print os.name
+#print os.name
+print platform.system()
 
 if os.name =='nt':
     print('Detected Windows')
     port = "COM4"
 elif os.name =='posix':
-    print('Detected MAC')
-    port = "/dev/tty.usbmodem14511"
+    if platform.system() == 'Darwin':
+        print('Detected MAC')
+        port = "/dev/tty.usbmodem14511"
 else:
     port='/dev/ttyACM0',  # /dev/ttyACM0
 
