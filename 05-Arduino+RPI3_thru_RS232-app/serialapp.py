@@ -1,11 +1,37 @@
 from Tkinter import *
 import tkFont
+import serial
+import os
+
+if os.name =='nt':
+    print('Detected Windows')
+    port = "COM4"
+
+else:
+    port='/dev/ttyACM0',  # /dev/ttyACM0
+
+ser = serial.Serial(port, 115200, timeout=1)
+
+# open the serial port
+if ser.isOpen():
+    print(ser.name + ' is open...')
+
 win = Tk()
 myFont = tkFont.Font(family = 'Calibri', size = 36) #, weight = 'bold'
 
+bLed = True
 def ledON():
-	print("LED button pressed")
+    global bLed
+    print("LED button pressed")
+    if bLed :
+        ser.write('1')
+        ledButton["text"] = "LED OFF"
 
+    else:
+        ser.write('0')
+        ledButton["text"] = "LED ON"
+
+    bLed = not bLed
 
 def exitProgram():
     print("Exit Button pressed")
