@@ -5,7 +5,7 @@ import os
 import platform
 
 #print os.name
-print platform.system()
+#print platform.system()
 
 if os.name =='nt':
     print('Detected Windows')
@@ -14,8 +14,13 @@ elif os.name =='posix':
     if platform.system() == 'Darwin':
         print('Detected MAC')
         port = "/dev/tty.usbmodem14511"
-else:
+
+    else: # 'Linux' including RPI
+        port='/dev/ttyACM0',  # /dev/ttyACM0
+
+else: # Linux
     port='/dev/ttyACM0',  # /dev/ttyACM0
+
 
 ser = serial.Serial(port, 115200, timeout=1)
 
