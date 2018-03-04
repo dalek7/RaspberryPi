@@ -18,6 +18,9 @@ else:
         timeout=1
     )
 
+if ser.isOpen():
+    print(ser.name + ' is open...')
+
 while True:
    x = ser.readline()
    x = x.strip()
