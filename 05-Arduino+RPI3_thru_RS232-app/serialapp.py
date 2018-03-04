@@ -16,6 +16,7 @@ elif os.name =='posix':
         port = "/dev/tty.usbmodem14511"
 
     else: # 'Linux' including RPI
+        print('Detected Linux (including RPI3)')
         port='/dev/ttyACM0',  # /dev/ttyACM0
 
 else: # Linux
