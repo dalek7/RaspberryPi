@@ -16,7 +16,6 @@ else:
     )
    #ser = serial.Serial('/dev/ttyUSB0',9600)
 
-
 while True:
    x = ser.readline()
    x = x.strip()
