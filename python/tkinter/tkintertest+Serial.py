@@ -73,7 +73,7 @@ class App(threading.Thread):
             x = x.strip()
             if len(x) > 0:
                 # print(x, len(x))
-                print('Received: {}'.format(x))
+                #print('Received {}:\t{}'.format(len(x), x))
                 text1.set('Received: {}'.format(x))
 
         self.root.quit()
