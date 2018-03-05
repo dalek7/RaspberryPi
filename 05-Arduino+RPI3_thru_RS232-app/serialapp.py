@@ -34,6 +34,7 @@ win = Tk()
 myFont = tkFont.Font(family = 'Calibri', size = 36) #, weight = 'bold'
 
 bLed = True
+
 def ledON():
     global bLed
     print("LED button pressed")
