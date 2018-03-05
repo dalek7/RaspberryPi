@@ -13,7 +13,8 @@ if os.name =='nt':
 elif os.name =='posix':
     if platform.system() == 'Darwin':
         print('Detected MAC')
-        port = "/dev/tty.usbmodem14511"
+        #port = "/dev/tty.usbmodem14511"
+        port = "/dev/tty.usbmodem14311" # Arduino MEGA @LAB #1
 
     else: # 'Linux' including RPI
         print('Detected Linux (including RPI3)')
@@ -22,7 +23,7 @@ elif os.name =='posix':
 else: # Linux
     port='/dev/ttyACM0',  # /dev/ttyACM0
 
-
+print('Connecting to ... {}'.format(port))
 ser = serial.Serial(port, 115200, timeout=1)
 
 # open the serial port
