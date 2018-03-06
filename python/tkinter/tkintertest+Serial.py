@@ -8,6 +8,7 @@ import serial
 
 import os
 import platform
+import datetime
 
 #print os.name
 #print platform.system()
@@ -74,7 +75,10 @@ class App(threading.Thread):
             if len(x) > 0:
                 # print(x, len(x))
                 #print('Received {}:\t{}'.format(len(x), x))
-                text1.set('Received: {}'.format(x))
+                text2.set('Received: {}'.format(x))
+                s1 = datetime.datetime.now().strftime("%Y%m%d-%H:%M:%S")
+                text1.set(s1)
+
 
         self.root.quit()
         self.root.update()
@@ -82,8 +86,14 @@ class App(threading.Thread):
 ROOT = Tk()
 APP = App(ROOT)
 
+text2 = StringVar()
+text2.set('Ready...')
+
 text1 = StringVar()
-text1.set('Ready...')
+text1.set(datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S"))
+
+textdev = StringVar()
+textdev.set(port)
 
 ledButton = Button(ROOT, text = "LED ON", command = ledON, height = 2, width =8 )
 ledButton.pack()
@@ -91,10 +101,16 @@ ledButton.pack()
 lb = Label(ROOT, textvariable=text1)
 lb.pack()
 
+lb = Label(ROOT, textvariable=text2)
+lb.pack()
+
 exitButton  = Button(ROOT, text = "Exit", command = exitProgram, height =2 , width = 6)
-exitButton.pack(side = BOTTOM)
+exitButton.pack()
+
+lb = Label(ROOT, textvariable=textdev, anchor=W, justify=LEFT)
+lb.pack(side = BOTTOM)
 
 ROOT.title("Hello")
-ROOT.geometry('200x100')
+ROOT.geometry('200x150')
 
 ROOT.mainloop()
