@@ -1,15 +1,22 @@
-// http://www.instructables.com/id/Raspberry-Pi-Arduino-Serial-Communication/
-char dataString[50] = {0};
 int i =0; 
 
 void setup() {
-Serial.begin(115200);              //Starting serial communication
+  Serial.begin(115200);              //Starting serial communication
+  pinMode(LED_BUILTIN, OUTPUT);
 }
   
 void loop() {
   
-  //sprintf(dataString,"%02X",a); // convert a value to hexa 
   Serial.println(i);   // send the data
   i = i + 1;
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(1000);                  // give the loop some break
+  
+  Serial.println(i);   // send the data
+  i = i + 1;
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);                       // wait for a second
+
+  if(i>10000)
+    i=0;
 }
