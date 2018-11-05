@@ -1,8 +1,8 @@
 # https://gordonlesti.com/use-tkinter-without-mainloop/
 # Seung-Chan Kim
 # Receiving serial data + Tkinter
-from Tkinter import *
-
+#from Tkinter import *
+import tkinter # https://raspberrypi.stackexchange.com/a/76700
 import threading
 import serial
 
