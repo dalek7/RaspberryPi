@@ -17,11 +17,9 @@ def GetTimeString(m = -1):
 
     return s1
 
-
 # 7-segment
 segment = SevenSegment.SevenSegment(address=0x70)
 segment.begin()
-
 
 MakeDir('out')
 fn1 = 'out/out_'+GetTimeString()+'.txt'
@@ -32,6 +30,8 @@ v =[]
 v.append(t0)
 cnt = 0
 fcnt = 0
+
+bDbg = True
 segment.clear()
 
 segment.set_digit(0, 0)
@@ -40,35 +40,39 @@ segment.set_digit(2, 0)
 segment.set_digit(3, 0)
 segment.write_display()
 print('System started..')
+
 while(1):
-    
     # t = datetime.time(datetime.now())
-    
     if cnt%60 ==0:
         segment.clear()
         t = datetime.now()
-        print('{}\t{}'.format(cnt, t))
+        
         v.append(t)
         np.savetxt(fn1, v, fmt='%s', delimiter='\t')
         v = []
         v.append(t0)
         
+        val1 = int(fcnt/100) % 10
+        val0 = int(fcnt/1000) %10
+        val2 = int(fcnt/10) %10
+        val3 = fcnt%10
         
-        
-        if fcnt>99:
-            segment.set_digit(1, int(fcnt/100))     # Tens
+        if bDbg:
+            print('{}\t{}\t{}---->{}_{}_{}_{}'.format(cnt, t, fcnt, val0, val1, val2, val3))
         
         if fcnt>999:
-            segment.set_digit(0, int(fcnt/1000))     # Tens
+            segment.set_digit(0, val0)     
             
-        segment.set_digit(2, int(fcnt/10))     # Tens
-        segment.set_digit(3, fcnt%10)     # Tens
+        if fcnt>99:
+            segment.set_digit(1, val1)     
+            
+        segment.set_digit(2, val2)     
+        segment.set_digit(3, val3)     
         segment.write_display()
         fcnt = fcnt+1
+        if fcnt>9999:
+            cnt = 0
+            fcnt = 0
         
     cnt = cnt+1    
     time.sleep(1)
-    
-    
-    
-    
