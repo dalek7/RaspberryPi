@@ -1,6 +1,5 @@
-### A user interface for PWM control
+### A user interface for PWM control (in progress)
 
 * tkinter (python)
-![A test image](tkinter.png)
 
-
+<img src="tkinter.png" width="480">
