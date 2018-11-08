@@ -2,6 +2,6 @@
 
 * tkinter (python)
 
-<img scr='./tkinter.png />
+<img src='./tkinter.png />
 
 
