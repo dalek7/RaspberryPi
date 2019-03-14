@@ -14,6 +14,7 @@ out/
 
 # Codeblocks
 *.layout
+*.depend
 
 # Prerequisites
 *.d
