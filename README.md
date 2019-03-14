@@ -14,5 +14,11 @@ NOTE: To compile programs with wiringPi, you need to add:
 i2cdetect -y 1
 ```
 
+### Installing Adafruit_Python_LED_Backpack library
+```
+git clone https://github.com/adafruit/Adafruit_Python_LED_Backpack.git
+cd Adafruit_Python_LED_Backpack
+sudo python setup.py install
+```
 ### PI3 GPIO
 <img src='pi3_gpio.png' width = '400px'/>
