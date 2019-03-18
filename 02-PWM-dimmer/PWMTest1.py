@@ -3,11 +3,12 @@
 import time
 import RPi.GPIO as GPIO
 
+led1 = 13
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(12, GPIO.OUT)
+GPIO.setup(led1, GPIO.OUT)
 
-p = GPIO.PWM(12, 50)  # channel=12 frequency=50Hz
+p = GPIO.PWM(led1, 50)  # channel=12 frequency=50Hz
 p.start(0)
 try:
     while 1:
