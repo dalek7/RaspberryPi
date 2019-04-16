@@ -1,7 +1,15 @@
 # RaspberryPi
 
+### Numbering
+* Difference between BOARD and BCM for GPIO pin numbering 
+```
+https://raspberrypi.stackexchange.com/a/12967
+```
+
 ### Setting up the wiringPI
+```
 http://wiringpi.com/download-and-install/
+```
 
 ###
 ```
