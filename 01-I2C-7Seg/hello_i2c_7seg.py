@@ -16,6 +16,7 @@ print("Press CTRL+Z to exit")
 
 # Continually update the time on a 4 char, 7-segment display
 cnt1 = 0
+testDev = False
 while(True):
   now = datetime.datetime.now()
   hour = now.hour
@@ -25,9 +26,14 @@ while(True):
   segment.clear()
   # Set hours
   cnt1 = cnt1 % 100
-  
-  segment.set_digit(0, int(cnt1/10))     # Tens
-  segment.set_digit(1, cnt1%10)     # Tens
+
+  if testDev:
+    segment.set_digit(0, int(cnt1/10))     # Tens
+    segment.set_digit(1, cnt1%10)     # Tens
+  else:
+    segment.set_digit(0, int(hour/10))     # Tens
+    segment.set_digit(1, hour%10)     # Tens
+    segment.set_colon(second % 2) 
   # Set minutes
   segment.set_digit(2, int(minute / 10))   # Tens
   segment.set_digit(3, minute % 10)        # Ones
