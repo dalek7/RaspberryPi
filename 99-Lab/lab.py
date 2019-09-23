@@ -11,6 +11,10 @@ sensor = HTU21D(i2c)
 from Adafruit7Segment import SevenSegment
 segment = SevenSegment.SevenSegment(address=0x70)
 segment.begin()
+
+segment1 = SevenSegment.SevenSegment(address=0x71)
+segment1.begin()
+
 print("Press CTRL+Z to exit")
 
 cnt1 = 0
