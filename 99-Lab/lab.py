@@ -75,7 +75,7 @@ while True:
 
 		
 		#if cnt1%60<30:
-		if sw1==0:
+		if sw1==1:
 			segment1.print_float(temp, decimal_digits=1)
 		else:
 			segment1.print_float(rhum, decimal_digits=1)
