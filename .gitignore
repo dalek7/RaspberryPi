@@ -10,6 +10,7 @@ out/
 
 # Pycharm
 .idea/
+__pycache__/
 
 
 # Codeblocks
