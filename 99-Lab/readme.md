@@ -10,5 +10,5 @@ If only A1 is shorted, the address is 0x70 + 2 = 0x72
 ```
 See https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address for more details
 
-
+<img src='images/20190923_213042.jpg width='500px'/>
 
