@@ -13,5 +13,8 @@ See https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address for mo
 <img src='images/20190923_213042.jpg' width='500px'/>
 <br/>
 <img src='images/20190923_213014.jpg' width='500px' />
+<br/>
+<img src='3DModels/Case_7Segment_v1/20191008_165328.jpg' width = '500px' />
 
-
+<br/>
+<img src='3DModels/Case_7Segment_v1/capture_grabcad.PNG' width = '500px' />
