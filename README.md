@@ -1,5 +1,8 @@
 # RaspberryPi
 
+### Example
+<img src='./99-Lab/3DModels/Case_7Segment_v1/20191008_165328.jpg' width=500px/>
+
 ### Numbering
 * Difference between BOARD and BCM for GPIO pin numbering 
 ```
