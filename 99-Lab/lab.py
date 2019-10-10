@@ -41,7 +41,7 @@ testDev = False
 while True:
 	sw1 = GPIO.input(19)
 	sw2 = GPIO.input(20)
-	print('SW1:{}\tSW2:{}'.format(sw1, sw2))
+	print('{}\tSW1:{}\tSW2:{}'.format(cnt1, sw1, sw2))
 
 	temp = sensor.temperature
 	rhum = sensor.relative_humidity
