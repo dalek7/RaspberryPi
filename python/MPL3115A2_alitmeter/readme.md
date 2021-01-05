@@ -1,7 +1,8 @@
 
-
 ### Run example
 ```
+$ python hello.py
+
 Altitude : 24.19 m
 Temperature in Celsius : 21.19 C
 Temperature in Fahrenheit : 70.14 F
