@@ -52,8 +52,15 @@ sudo python setup.py install
 70: -- 71 -- -- -- -- -- --
 ```
 
+#### 0x71 : Adafruit LED Backpacks
+The HT16K33 driver chip on these LED backpacks has a default I2C address of 0x70.<br/> 
+Since each device on an I2C bus must have a unique address, its important to avoid collisions or you'll get a lot of strange responses from your electronic devices! 
+* https://learn.adafruit.com/adafruit-led-backpack
+* https://learn.adafruit.com/adafruit-led-backpack/changing-i2c-address
+
 #### 0x60 : MPL3115A2 
 I2C Barometric Pressure/Altitude/Temperature Sensor
 
 https://www.adafruit.com/product/1893
+
 
