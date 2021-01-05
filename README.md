@@ -36,3 +36,24 @@ sudo python setup.py install
 
 ### Custom hat Ver. 0.1
 <img src='documents/PCB/rpi_hat_irlab_1.png' width = '500px' />
+
+
+### Devices tested
+
+```
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: 40 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- 71 -- -- -- -- -- --
+```
+
+#### 0x60 : MPL3115A2 
+I2C Barometric Pressure/Altitude/Temperature Sensor
+
+https://www.adafruit.com/product/1893
+
