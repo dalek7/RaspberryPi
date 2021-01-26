@@ -9,16 +9,42 @@
 https://raspberrypi.stackexchange.com/a/12967
 ```
 
-### Setting up the wiringPI
+### Setting up 
+
+* wiringPI
 ```
 http://wiringpi.com/download-and-install/
 ```
-
-###
 ```
 NOTE: To compile programs with wiringPi, you need to add:
     -lwiringPi
 ```
+
+*  RPi.GPIO 
+아래와 같은 에러가 발생시 (python)
+```bash
+ModuleNotFoundError: No module named 'RPi'
+```
+
+아래처럼 확인 (각자의 virtual enviroment 활용)
+```bash
+pip freeze | grep RPi
+```
+
+없다면, 아래처럼
+```bash
+~/.venv/dev/bin/python3 -m pip install RPi.GPIO
+```
+* board
+```bash
+/.venv/dev/bin/python3 -m pip install adafruit-blinka
+```
+
+* Adafruit - htu21d
+```bash
+~/.venv/dev/bin/python3 -m pip install adafruit-circuitpython-htu21d
+```
+
 
 ### Scanning an I2C bus for devices
 ```
@@ -26,7 +52,7 @@ i2cdetect -y 1
 ```
 
 ### Installing Adafruit_Python_LED_Backpack library
-```
+```bash
 git clone https://github.com/adafruit/Adafruit_Python_LED_Backpack.git
 cd Adafruit_Python_LED_Backpack
 sudo python setup.py install
@@ -40,7 +66,7 @@ sudo python setup.py install
 
 ### Devices tested
 
-```
+```bash
      0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
 00:          -- -- -- -- -- -- -- -- -- -- -- -- --
 10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
