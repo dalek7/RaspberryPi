@@ -58,7 +58,7 @@ cd Adafruit_Python_LED_Backpack
 sudo python setup.py install
 ```
 ### PI3 GPIO
-<img src='pi3_gpio.png' width = '400px'/>
+<img src='./images/pi3_gpio.png' width = '400px'/>
 
 ### Custom hat Ver. 0.1
 <img src='documents/PCB/rpi_hat_irlab_1.png' width = '500px' />
