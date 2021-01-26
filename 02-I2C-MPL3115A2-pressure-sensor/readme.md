@@ -11,6 +11,8 @@ Temperature in Celsius : 25.50 C
 Temperature in Fahrenheit : 77.90 F
 ```
 
+### TODO
+* Add a datasheet
 
 ### References
 https://www.instructables.com/Raspberry-Pi-MPL3115A2-Precision-Altimeter-Sensor--1/
