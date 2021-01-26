@@ -15,6 +15,14 @@ Temperature in Fahrenheit : 77.90 F
 MPL3115A2 - I2C Barometric Pressure/Altitude/Temperature Sensor <br/>
 https://www.adafruit.com/product/1893
 
+<img src='../images/1893-02.jpg' width=480px />
+
+<img src='../images/20210105_202944.jpg' width=480px />
+
+<img src='../images/20210105_202858.jpg' width=480px />
+
+
+
 ### TODO
 * Add a datasheet
 
