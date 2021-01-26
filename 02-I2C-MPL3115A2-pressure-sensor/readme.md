@@ -10,6 +10,10 @@ Pressure : 101.34 kPa
 Temperature in Celsius : 25.50 C
 Temperature in Fahrenheit : 77.90 F
 ```
+### Tested 부품
+* Adafruit 센서 : <br/>
+MPL3115A2 - I2C Barometric Pressure/Altitude/Temperature Sensor <br/>
+https://www.adafruit.com/product/1893
 
 ### TODO
 * Add a datasheet
