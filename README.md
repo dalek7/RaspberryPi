@@ -89,4 +89,5 @@ I2C Barometric Pressure/Altitude/Temperature Sensor
 
 https://www.adafruit.com/product/1893
 
+<img src='images/20210105_202944.jpg' width=480px />
 
